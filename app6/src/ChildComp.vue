@@ -1,3 +1,3 @@
 <template>
-A child component.
+  <slot>Fallback content</slot>
 </template>
