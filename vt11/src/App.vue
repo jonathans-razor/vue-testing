@@ -1,10 +1,33 @@
-<script setup>
-import { ref } from 'vue'
-import ChildComp from './ChildComp.vue'
+<script>
+import JSConfetti from 'js-confetti'
 
-const msg = ref('from parent')
+export default {
+  setup() {
+    const confetti = new JSConfetti()
+
+    function showConfetti() {
+      confetti.addConfetti()
+    }
+
+    // Call the function once when the component is created
+    showConfetti()
+
+    // Expose the function to the template
+    return {
+      showConfetti
+    }
+  }
+}
 </script>
 
 <template>
-  <ChildComp></ChildComp>
+  <h1 @click="showConfetti">🎉 Congratulations!</h1>
 </template>
+
+<style>
+h1 {
+  text-align: center;
+  cursor: pointer;
+  margin-top: 3em;
+}
+</style>
