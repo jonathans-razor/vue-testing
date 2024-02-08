@@ -6,7 +6,7 @@ You can switch between the two branches.
 <script setup>
 import { ref, watchEffect } from 'vue'
 
-const API_URL = `https://api.github.com/repos/vuejs/core/commits?per_page=3&sha=`
+const API_URL = `https://api.github.com/repos/vuejs/core/commits?per_page=7&sha=`
 const branches = ['main', 'v2-compat']
 
 const currentBranch = ref(branches[0])
@@ -61,6 +61,6 @@ li {
 
 .author,
 .date {
-  font-weight: bold;
+  font-weight: bolder;
 }
 </style>
