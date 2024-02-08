@@ -122,7 +122,7 @@ function onHashChange() {
           <a href="#/active" :class="{ selected: visibility === 'active' }">Active</a>
         </li>
         <li>
-          <a href="#/completed" :class="{ selected: visibility === 'completed' }">Completed</a>
+          <a href="#/completed" :class="{ selected: visibility === 'completed' }">Completed Yeah</a>
         </li>
       </ul>
       <button class="clear-completed" @click="removeCompleted" v-show="todos.length > remaining">
