@@ -59,7 +59,7 @@ function remove(stat) {
 <style>
 polygon {
   fill: #b1ec6a;
-  opacity: 0.75;
+  opacity: 0.99;
 }
 
 circle {
