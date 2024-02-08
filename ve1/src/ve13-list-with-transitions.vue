@@ -7,7 +7,7 @@ https://aerotwist.com/blog/flip-your-animations/
 import { shuffle as _shuffle } from 'lodash-es'
 import { ref } from 'vue'
 
-const getInitialItems = () => [1, 2, 3, 4, 5]
+const getInitialItems = () => [1, 2, 3, 4, 5, 6]
 const items = ref(getInitialItems())
 let id = items.value.length + 1
 
@@ -55,7 +55,7 @@ function remove(item) {
 .item {
   width: 100%;
   height: 30px;
-  background-color: #f3f3f3;
+  background-color: #553868;
   border: 1px solid #666;
   box-sizing: border-box;
 }
