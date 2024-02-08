@@ -58,7 +58,7 @@ function remove(stat) {
 
 <style>
 polygon {
-  fill: #b1ec6a;
+  fill: #42b983;
   opacity: 0.75;
 }
 
