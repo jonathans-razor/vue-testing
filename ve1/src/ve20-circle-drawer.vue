@@ -95,7 +95,7 @@ body {
 svg {
   width: 100vw;
   height: 100vh;
-  background-color: #cb49ab;
+  background-color: #eee;
 }
 
 circle {
@@ -118,7 +118,7 @@ circle {
   position: fixed;
   top: calc(50% - 50px);
   left: calc(50% - 175px);
-  background: #ad4242;
+  background: #fff;
   width: 350px;
   height: 100px;
   padding: 5px 20px;
@@ -137,6 +137,6 @@ circle {
 .tip {
   text-align: center;
   padding: 0 50px;
-  color: #378328;
+  color: #bbb;
 }
 </style>
