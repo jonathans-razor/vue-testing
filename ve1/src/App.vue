@@ -1,61 +1,78 @@
 <!--
-https://eugenkiss.github.io/7guis/tasks/#timer
+https://eugenkiss.github.io/7guis/tasks/#flight
 -->
 
 <script setup>
-import { ref, onUnmounted, computed } from 'vue'
-const duration = ref(15 * 1000)
-const elapsed = ref(0)
+import { ref, computed } from 'vue'
 
-let lastTime
-let handle
+const flightType = ref('one-way flight')
+const departureDate = ref(dateToString(new Date()))
+const returnDate = ref(departureDate.value)
 
-const update = () => {
-  elapsed.value = performance.now() - lastTime
-  if (elapsed.value >= duration.value) {
-    cancelAnimationFrame(handle)
-  } else {
-    handle = requestAnimationFrame(update)
-  }
-}
+const isReturn = computed(() => flightType.value === 'return flight')
 
-const reset = () => {
-  elapsed.value = 0
-  lastTime = performance.now()
-  update()
-}
-
-const progressRate = computed(() =>
-  Math.min(elapsed.value / duration.value, 1)
+const canBook = computed(
+  () =>
+    !isReturn.value ||
+    stringToDate(returnDate.value) > stringToDate(departureDate.value)
 )
 
-reset()
+function book() {
+  alert(
+    isReturn.value
+      ? `You have booked a return flight leaving on ${departureDate.value} and returning on ${returnDate.value}.`
+      : `You have booked a one-way flight leaving on ${departureDate.value}.`
+  )
+}
 
-onUnmounted(() => {
-  cancelAnimationFrame(handle)
-})
+function stringToDate(str) {
+  const [y, m, d] = str.split('-')
+  return new Date(+y, m - 1, +d)
+}
+
+function dateToString(date) {
+  return (
+    date.getFullYear() +
+    '-' +
+    pad(date.getMonth() + 1) +
+    '-' +
+    pad(date.getDate())
+  )
+}
+
+function pad(paddingNumber, s = String(paddingNumber)) {
+  return s.length < 2 ? `0${s}` : s
+}
 </script>
 
 <template>
-  <label>Elapsed Time: <progress :value="progressRate"></progress></label>
+  <select v-model="flightType">
+    <option value="one-way flight">One-way Flight</option>
+    <option value="return flight">Return Flight</option>
+  </select>
 
-  <div>{{ (elapsed / 1000).toFixed(1) }}s</div>
+  <input type="date" v-model="departureDate">
+  <input type="date" v-model="returnDate" :disabled="!isReturn">
 
-  <div>
-    Duration: <input type="range" v-model="duration" min="1" max="30000">
-    {{ (duration / 1000).toFixed(1) }}s
-  </div>
+  <button :disabled="!canBook" @click="book">Book</button>
 
-  <button @click="reset">Reset</button>
+  <p>{{ canBook ? '' : 'Return date must be after departure date.' }}</p>
 </template>
 
 <style>
-.elapsed-container {
-  width: 300px;
+select,
+input,
+button {
+  display: block;
+  margin: 0.5em 0;
+  font-size: 15px;
 }
 
-.elapsed-bar {
-  background-color: red;
-  height: 10px;
+input[disabled] {
+  color: #999;
+}
+
+p {
+  color: red;
 }
 </style>
