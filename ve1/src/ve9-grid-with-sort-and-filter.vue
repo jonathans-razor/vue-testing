@@ -10,9 +10,11 @@ const searchQuery = ref('')
 const gridColumns = ['name', 'power']
 const gridData = [
   { name: 'Chuck Norris', power: Infinity },
+  { name: 'Arnold Schwarzenegger', power: 10000 },
   { name: 'Bruce Lee', power: 9000 },
-  { name: 'Jackie Chan', power: 7000 },
-  { name: 'Jet Li', power: 8000 }
+  { name: 'Jackie Chan', power: 8000 },
+  { name: 'Jet Li', power: 7000 },
+  { name: 'Bruce Willis', power: 6000 }
 ]
 </script>
 
