@@ -40,7 +40,7 @@ function dateToString(date) {
   )
 }
 
-function pad(n, s = String(n)) {
+function pad(paddingNumber, s = String(paddingNumber)) {
   return s.length < 2 ? `0${s}` : s
 }
 </script>
