@@ -6,10 +6,10 @@ const todoData = ref(null)
 
 async function fetchData() {
   todoData.value = null
-  const res = await fetch(
+  const response = await fetch(
     `https://jsonplaceholder.typicode.com/todos/${todoId.value}`
   )
-  todoData.value = await res.json()
+  todoData.value = await response.json()
 }
 
 fetchData()
