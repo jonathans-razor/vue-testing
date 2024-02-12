@@ -10,7 +10,10 @@ import TodoItem from './TodoItem.vue'
 const groceryList = ref([
   { id: 0, text: 'Vegetables' },
   { id: 1, text: 'Cheese' },
-  { id: 2, text: 'Whatever else humans are supposed to eat' }
+  { id: 2, text: 'Burger' },
+  { id: 3, text: 'Eggs' },
+  { id: 4, text: 'Onion' },
+  { id: 5, text: 'Whatever else humans are supposed to eat' }
 ])
 </script>
 

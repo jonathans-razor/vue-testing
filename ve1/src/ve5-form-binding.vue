@@ -5,7 +5,7 @@ We can create two-way bindings between state and form inputs using the v-model d
 <script setup>
 import { ref } from 'vue'
 
-const text = ref('Edit me')
+const text = ref('Edit me or bite me')
 const checked = ref(true)
 const checkedNames = ref(['Jack'])
 const picked = ref('One')
