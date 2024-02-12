@@ -18,6 +18,10 @@ const filteredTodos = computed(() => {
 })
 
 function addTodo() {
+  if (!newTodo.value.trim()) {
+    alert('Todo item cannot be blank.')
+    return
+  }
   todos.value.push({ id: id++, text: newTodo.value, done: false })
   newTodo.value = ''
 }

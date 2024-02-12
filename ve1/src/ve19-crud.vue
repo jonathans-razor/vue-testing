@@ -22,7 +22,6 @@ watch(selected, (name) => {
 })
 
 function create() {
-  alert('Hi.')
   if (hasValidInput()) {
     const fullName = `${last.value}, ${first.value}`
     if (!names.includes(fullName)) {
