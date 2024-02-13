@@ -3,11 +3,11 @@
 </script>
 
 <template>
-  <VApp>
+  <v-app>
     <SideBar />
     <!-- SIDEBAR -->
-    <VMain>
+    <v-main>
       <!-- CARDS -->
-    </VMain>
-  </VApp>  
+    </v-main>
+  </v-app>  
 </template>
