@@ -11,9 +11,8 @@
         <v-divider></v-divider>
 
         <v-list density="compact" nav>
-          <v-list-item prepend-icon="mdi-image" title="Color" value="home"></v-list-item>
-          <v-list-item prepend-icon="mdi-account" title="My Account" value="account"></v-list-item>
-          <v-list-item prepend-icon="mdi-account-group-outline" title="Users" value="users"></v-list-item>
+          <v-list-item prepend-icon="mdi-image" title="Color Gallery" value="color"></v-list-item>
+          <v-list-item prepend-icon="mdi-dialpad" title="Gray Gallery" value="gray"></v-list-item>
         </v-list>
       </v-navigation-drawer>
       <v-main style="height: 220px"></v-main>
