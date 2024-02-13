@@ -1,3 +1,13 @@
+<script setup>
+  import SideBar from './components/SideBar.vue'
+</script>
+
 <template>
-<div></div>
+  <VApp>
+    <SideBar />
+    <!-- SIDEBAR -->
+    <VMain>
+      <!-- CARDS -->
+    </VMain>
+  </VApp>  
 </template>
