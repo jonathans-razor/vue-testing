@@ -1,3 +1,13 @@
+<script setup>
+  import { defineEmits } from 'vue'; 
+
+  const emits = defineEmits(['selectOption']);
+
+  const selectOption = (isColor) => {
+    emits('selectOption', isColor);
+  }
+</script>
+
 <template>
   <v-card>
     <v-layout>
@@ -11,8 +21,20 @@
         <v-divider></v-divider>
 
         <v-list density="compact" nav>
-          <v-list-item prepend-icon="mdi-image" title="Color Gallery" value="color"></v-list-item>
-          <v-list-item prepend-icon="mdi-dialpad" title="Gray Gallery" value="gray"></v-list-item>
+          <v-list-item 
+            prepend-icon="mdi-image" 
+            title="Color Gallery" 
+            value="color"
+            @click="selectOption(true)"
+            >
+            
+          </v-list-item>
+          <v-list-item prepend-icon="mdi-dialpad" title="Gray Gallery" 
+            value="gray"
+            @click="selectOption(false)"
+          >
+
+          </v-list-item>
         </v-list>
       </v-navigation-drawer>
       <v-main style="height: 220px"></v-main>
