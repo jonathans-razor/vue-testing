@@ -6,7 +6,7 @@
   import { ref } from 'vue';
 
   const isWithColor = ref(true);
-  
+
   const onSelectOption = (isColor) => {
     isWithColor.value = isColor;
   } 
@@ -14,9 +14,12 @@
 
 <template>
   <v-app>
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    {{ isWithColor }}
+    yyyy
     <SideBar @selectOption="onSelectOption" />
     <v-main>
-      <ImageGallery />
+      <ImageGallery :isWithColor="isWithColor"/>
     </v-main>
   </v-app>  
 </template>
