@@ -1,7 +1,10 @@
 import './style.css'
+import { debounce } from 'lodash-es'
 import javascriptLogo from './javascript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.js'
+
+console.log(debounce)
 
 document.querySelector('#app').innerHTML = `
   <div>
