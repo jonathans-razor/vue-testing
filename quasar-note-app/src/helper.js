@@ -3,9 +3,10 @@ import { ref, watch, onMounted, onUnmounted } from 'vue'
 const useLocalStorage = (key, defaultValue) => {
   const value = ref(defaultValue)
   const read = () => {
-    const v = localStorage.getItem(key)
-    if (v !== null) value.value = JSON.parse(v)
+    const v = window.localStorage.getItem(key)
+    if (v != null) value.value = JSON.parse(v)
   }
+
   read()
 
   onMounted(() => {
@@ -23,6 +24,6 @@ const useLocalStorage = (key, defaultValue) => {
   return value
 }
 
-export const useLocalNote = () => {
+export const useLocalNotes = () => {
   return useLocalStorage('notes', [])
 }
