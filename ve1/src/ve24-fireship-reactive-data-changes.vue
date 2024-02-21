@@ -12,7 +12,7 @@ export default {
   created() {
     setInterval(() => {
       this.likes++
-    }, 4000)
+    }, 2000)
   }
 }
 </script>
