@@ -15,4 +15,6 @@ const message = ref('Hello World!')
 
 <template>
   <h1>{{ message }}</h1>
+  <h1>{{ message }}</h1>
+  <h1>{{ message }}</h1>
 </template>
