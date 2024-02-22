@@ -12,13 +12,11 @@ const tudos_asc = computed(() => tudos.value.sort((a, b) => {
 }))
 
 const addTodo = () => {
-  tudos.value.push({
-    content: input_content.value,
-    category: input_category.value,
-    createdAt: new Date()
-  })
-  input_content.value = ''
-  input_category.value = null
+  if (input_content.value.trim() === '' || !input_category.value === null) {
+    console.log('Please fill in the input and select a category')
+    return
+  }
+  console.log('todo added')
 }
 
 watch(name, (newVal) => {
