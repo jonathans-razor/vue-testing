@@ -90,17 +90,11 @@ onMounted(() => {
             <input type="checkbox" v-model="todo.done" />
             <span class="'bubble ${todo.category}'"></span>
           </label>
-          <div class="content">
-            <input 
-            type="checkbox" 
-            v-model="todo.done"/>
-            <label :for="todo.createdAt">{{ todo.content }}</label>
+
+          <div class="todo-content">
+            <input type="text" v-model="todo.content" />
           </div>
-          <div class="category">
-            <span 
-            :class="todo.category">
-            </span>
-          </div>
+          
         </div>
       </div>
     </section>  
