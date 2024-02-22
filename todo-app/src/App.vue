@@ -7,7 +7,7 @@ const name = ref('')
 const input_content = ref('')
 const input_category= ref(null)
 
-const tudos_asc = computed(() => tudos.value.sort((a, b) => {
+const todos_asc = computed(() => todos.value.sort((a, b) => {
   return b.createdAt = a.createdAt
 }))
 
@@ -82,6 +82,22 @@ onMounted(() => {
     </section>
     <section class="todo-list">
       <h3>TODO LIST</h3> 
+      <div class="list">
+        <div v-for="todo in todos_asc" :key="todo.createdAt" :class="'todo-item ' + todo.done">
+          <div class="content">
+            <input 
+            type="checkbox" 
+            :id="todo.createdAt" 
+            v-model="todo.done"/>
+            <label :for="todo.createdAt">{{ todo.content }}</label>
+          </div>
+          <div class="category">
+            <span 
+            :class="todo.category">
+            </span>
+          </div>
+        </div>
+      </div>
     </section>  
   </main>
 
