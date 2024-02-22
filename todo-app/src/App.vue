@@ -14,6 +14,10 @@ const tudos_asc = computed(() => tudos.value.sort((a, b) => {
 watch(name, (newVal) => {
   localStorage.setItem('name', newVal)
 })
+
+onMounted(() => {
+  name.value = localStorage.getItem('name') || ''
+})
 </script>
 
 <template>
