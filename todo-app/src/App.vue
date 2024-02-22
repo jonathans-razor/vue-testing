@@ -11,7 +11,7 @@ const tudos_asc = computed(() => tudos.value.sort((a, b) => {
   return a.createdAt = b.createdAt
 }))
 
-watch(name, (newName) => {
+watch(name, (newVal) => {
   localStorage.setItem('name', newVal)
 })
 </script>
