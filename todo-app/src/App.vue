@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted, computed, watch } from 'vue'
 
-const tudos = ref([])
+const todos = ref([])
 const name = ref('')
 
 const input_content = ref('')
@@ -16,8 +16,18 @@ const addTodo = () => {
     console.log('Please fill in the input and select a category')
     return
   }
+  todos.value.push({
+    content: input_content.value,
+    category: input_category.value,
+    done: false,
+    createdAt: new Date().getTime()
+  })
   console.log('todo added')
 }
+
+watch(todos, (newVal) => {
+  localStorage.setItem('todos', JSON.stringify(newVal))
+}, { deep: true })
 
 watch(name, (newVal) => {
   localStorage.setItem('name', newVal)
