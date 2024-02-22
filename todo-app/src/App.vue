@@ -88,13 +88,13 @@ onMounted(() => {
 
           <label>
             <input type="checkbox" v-model="todo.done" />
-            <span class="'bubble ${todo.category}'"></span>
+            <span :class="'bubble ${todo.category}'"></span>
           </label>
 
           <div class="todo-content">
             <input type="text" v-model="todo.content" />
           </div>
-          
+
         </div>
       </div>
     </section>  
