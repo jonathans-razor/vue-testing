@@ -23,6 +23,8 @@ const addTodo = () => {
     createdAt: new Date().getTime()
   })
   console.log('todo added')
+  input_content.value = ''
+  input_category.value = null
 }
 
 const removeTodo = (todo) => {
