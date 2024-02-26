@@ -2,11 +2,11 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
     <div class="counter">
-      {{ counter }}
+      {{ $store.state.counter }}
     </div>
     <div class="buttons">
-      <button @click="decrement">-</button>
-      <button @click="increment">+</button>
+      <button @click="$store.commit('decrement')">-</button>
+      <button @click="$store.commit('increment')">+</button>
     </div>
   </div>
 </template>
@@ -14,19 +14,6 @@
 <script>
 export default {
   name: 'HomeView',
-  data() {
-    return {
-      counter: 0
-    }
-  },
-  methods: {
-    increment() {
-      this.counter++
-    },
-    decrement() {
-      this.counter--
-    }
-  }
 }
 
 </script>
