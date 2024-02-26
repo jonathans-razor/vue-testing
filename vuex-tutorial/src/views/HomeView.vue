@@ -2,18 +2,31 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
     <div class="counter">
-      0
+      {{ counter }}
     </div>
     <div class="buttons">
-      <button>-</button>
-      <button>+</button>
+      <button @click="decrement">-</button>
+      <button @click="increment">+</button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HomeView'
+  name: 'HomeView',
+  data() {
+    return {
+      counter: 0
+    }
+  },
+  methods: {
+    increment() {
+      this.counter++
+    },
+    decrement() {
+      this.counter--
+    }
+  }
 }
 
 </script>
@@ -23,10 +36,12 @@ div {
   margin-bottom: 10px;
 }
 .counter {
-  font-size: 80px;
+  font-size: 40px;
   text-align: center;
 }
-.ubuttons button {
-  font-size: 40px;
+.buttons button {
+  font-size: 20px;
+  width: 50px;
+  margin: 0 10px;
 }
 </style>
