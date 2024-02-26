@@ -6,6 +6,7 @@ export default createStore({
   getters: {
   },
   mutations: {
+    // Note: You can't trigger async code in mutations.
   },
   actions: {
   },
