@@ -34,8 +34,8 @@ export default {
       get() {
         return this.$store.state.colorCode;
       },
-      set(value) {
-        this.$store.commit('setColorCode', value);
+      set(newValue) {
+        this.$store.commit('setColorCode', newValue);
       }
     }
   }

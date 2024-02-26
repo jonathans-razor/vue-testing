@@ -4,7 +4,7 @@ import axios from 'axios'
 export default createStore({
   state: {
     counter: 0,
-    colorCode: "purple"
+    colorCode: "goldenrod"
   },
   mutations: {
     // Note: You can't trigger async code in mutations.
@@ -16,6 +16,9 @@ export default createStore({
       state.counter -= randomNumber;
       console.log("randomNumber: ", randomNumber);
     },
+    setColorCode(state, newColor) {
+      state.colorCode = newColor;
+    } 
   },
   actions: {
     increment({ commit }) {
