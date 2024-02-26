@@ -1,7 +1,10 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <div class="counter">
+    <div 
+      class="counter"
+      :style="{ color: $store.state.colorCode }"     
+    >
       {{ $store.state.counter }}
     </div>
     <div class="counter-squared">
@@ -12,6 +15,12 @@
     <div class="buttons">
       <button @click="$store.dispatch('decrement')">-</button>
       <button @click="$store.dispatch('increment')">+</button>
+    </div>
+    <div>
+      <input 
+        placeholder="Enter color code" 
+        type="text" 
+      />
     </div>
   </div>
 </template>
