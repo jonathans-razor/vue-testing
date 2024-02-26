@@ -1,12 +1,29 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
+    <div class="counter">
+      0
+    </div>
+    <div class="buttons">
+      <button>-</button>
+      <button>+</button>
+    </div>
   </div>
 </template>
 
 <script>
-
 export default {
   name: 'HomeView'
 }
+
 </script>
+
+<style>
+div {
+  margin-bottom: 10px;
+}
+.counter {
+  font-size: 80px;
+  text-align: center;
+}
+</style>
