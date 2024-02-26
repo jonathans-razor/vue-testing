@@ -10,7 +10,8 @@ export default createStore({
   mutations: {
     // Note: You can't trigger async code in mutations.
     increment(state, randomNumber) {
-      console.log("randomNumber: ", randomNumber);
+      state.counter += randomNumber;
+      //console.log("randomNumber: ", randomNumber);
     },
     decrement(state) {
       state.counter--
