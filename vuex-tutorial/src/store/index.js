@@ -5,7 +5,6 @@ export default createStore({
   state: {
     counter: 0,
   },
-  getters: {},
   mutations: {
     // Note: You can't trigger async code in mutations.
     increment(state, randomNumber) {
@@ -35,5 +34,11 @@ export default createStore({
         });
     },
   },
-  modules: {},
+  getters: {
+    counterSquared(state) {
+      return state.counter * state.counter;
+    },
+  },
+  modules: {
+  },
 });

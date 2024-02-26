@@ -7,7 +7,7 @@
     <div class="counter-squared">
       {{ $store.state.counter }}
       <sup>2</sup> = 
-      xxx
+      {{ $store.getters.counterSquared }}
     </div>
     <div class="buttons">
       <button @click="$store.dispatch('decrement')">-</button>
