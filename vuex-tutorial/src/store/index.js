@@ -37,6 +37,9 @@ export default createStore({
           commit("decrement", response.data);
         });
     },
+    setColorCode({ commit }, newColor) {
+      commit("setColorCode", newColor);
+    },
   },
   getters: {
     counterSquared(state) {
