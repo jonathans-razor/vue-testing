@@ -6,7 +6,7 @@
     </div>
     <div class="buttons">
       <button @click="$store.commit('decrement')">-</button>
-      <button @click="$store.commit('increment')">+</button>
+      <button @click="$store.dispatch('increment')">+</button>
     </div>
   </div>
 </template>

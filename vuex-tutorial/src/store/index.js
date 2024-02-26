@@ -16,6 +16,9 @@ export default createStore({
     }    
   },
   actions: {
+    increment() {
+      console.log('increment(action)')
+    }
   },
   modules: {
   }
