@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import axios from 'axios'
 
 export default createStore({
   state: {
@@ -17,7 +18,10 @@ export default createStore({
   },
   actions: {
     increment() {
-      console.log('increment(action)')
+      console.log("increment(action)"),
+        axios('https://www.random.org/integers/?num=1&min=1&max=100&col=5&base=10&format=plain&rnd=new').then((response) => {
+          console.log("response: ", response);
+        });
     }
   },
   modules: {
