@@ -9,18 +9,18 @@ export default createStore({
   },
   mutations: {
     // Note: You can't trigger async code in mutations.
-    increment(state) {
-      state.counter++
+    increment(state, randomNumber) {
+      console.log("randomNumber: ", randomNumber);
     },
     decrement(state) {
       state.counter--
     }    
   },
   actions: {
-    increment() {
+    increment({ commit }) {
       console.log("increment(action)"),
         axios('https://www.random.org/integers/?num=1&min=1&max=100&col=5&base=10&format=plain&rnd=new').then((response) => {
-          console.log("response: ", response);
+          commit('increment', response.data);
         });
     }
   },
