@@ -20,6 +20,7 @@
       <input 
         placeholder="Enter color code" 
         type="text" 
+        v-model="colorCode"
       />
     </div>
   </div>
@@ -28,6 +29,16 @@
 <script>
 export default {
   name: 'HomeView',
+  computed: {
+    colorCode: {
+      get() {
+        return this.$store.state.colorCode;
+      },
+      set(value) {
+        this.$store.commit('setColorCode', value);
+      }
+    }
+  }
 }
 
 </script>
