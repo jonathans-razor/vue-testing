@@ -26,4 +26,7 @@ div {
   font-size: 80px;
   text-align: center;
 }
+.ubuttons button {
+  font-size: 40px;
+}
 </style>
