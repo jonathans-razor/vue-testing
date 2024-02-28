@@ -32,12 +32,18 @@ const treeData = ref({
 </script>
 
 <template>
+  <h3 class="steel-blue">
+    A nested tree component that recursively renders itself.
+    You can double click on an item to turn it into a folder.
+  </h3>
+  <br/>
   <ul>
     <TreeItem class="item" :model="treeData"></TreeItem>
   </ul>
 </template>
 
 <style>
+h3.steel-blue{color:steelblue;}
 .item {
   cursor: pointer;
   line-height: 1.5;

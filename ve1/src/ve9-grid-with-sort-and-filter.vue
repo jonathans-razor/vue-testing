@@ -1,3 +1,5 @@
+
+
 <!--
 An example of creating a reusable grid component and using it with external data.
 -->
@@ -19,9 +21,14 @@ const gridData = [
 </script>
 
 <template>
+  <h2 class="steel-blue">
+    Grid with search and sort. An example of creating a reusable grid component and using it with external data.
+  </h2>
   <form id="search">
     Search <input name="query" v-model="searchQuery">
   </form>
   <DemoGrid :data="gridData" :columns="gridColumns" :filter-key="searchQuery">
   </DemoGrid>
 </template>
+
+<style>h2.steel-blue{color:steelblue;}</style>
