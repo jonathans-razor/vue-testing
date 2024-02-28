@@ -3,12 +3,12 @@
     <v-navigation-drawer
       v-model="drawer"
       app
-      :width="146">
+      :width="196">
       <v-list-item title="My Application" subtitle="Vuetify"></v-list-item>
       <v-divider></v-divider>
-      <v-list-item link title="List Item 1"></v-list-item>
-      <v-list-item link title="List Item 2"></v-list-item>
-      <v-list-item link title="List Item 3"></v-list-item>
+      <v-list-item link title="Dashboard" append-icon="mdi-view-dashboard"></v-list-item>
+      <v-list-item link title="Photos" append-icon="mdi-image"></v-list-item>
+      <v-list-item link title="About" append-icon="mdi-help-box"></v-list-item>
     </v-navigation-drawer>
     <v-app-bar>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
