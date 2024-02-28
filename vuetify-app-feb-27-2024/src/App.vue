@@ -4,9 +4,9 @@
       v-model="drawer"
       app
       :width="196">
-      <v-list-item title="My Application" subtitle="Vuetify"></v-list-item>
+      <v-list-item title="Vuetify Todo" subtitle="Best Todo Ever"></v-list-item>
       <v-divider></v-divider>
-      <v-list-item link title="Dashboard" append-icon="mdi-view-dashboard"></v-list-item>
+      <v-list-item link title="Todo" append-icon="mdi-view-dashboard"></v-list-item>
       <v-list-item link title="About" append-icon="mdi-help-box"></v-list-item>
     </v-navigation-drawer>
     <v-app-bar>
