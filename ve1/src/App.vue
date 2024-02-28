@@ -1,82 +1,138 @@
+
 <!--
-FLIP list transitions with the built-in <TransitionGroup>.
-https://aerotwist.com/blog/flip-your-animations/
+A fully spec-compliant TodoMVC implementation
+https://todomvc.com/
 -->
 
 <script setup>
-import { shuffle as _shuffle } from 'lodash-es'
-import { ref } from 'vue'
+import { ref, computed, watchEffect } from 'vue'
 
-const getInitialItems = () => [1, 2, 3, 4, 5, 6]
-const items = ref(getInitialItems())
-let id = items.value.length + 1
+const STORAGE_KEY = 'vue-todomvc'
 
-function insert() {
-  const i = Math.round(Math.random() * items.value.length)
-  items.value.splice(i, 0, id++)
+const filters = {
+  all: (todos) => todos,
+  active: (todos) => todos.filter((todo) => !todo.completed),
+  completed: (todos) => todos.filter((todo) => todo.completed)
 }
 
-function reset() {
-  items.value = getInitialItems()
-  id = items.value.length + 1
+// state
+const todos = ref(JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'))
+const visibility = ref('all')
+const editedTodo = ref()
+
+// derived state
+const filteredTodos = computed(() => filters[visibility.value](todos.value))
+const remaining = computed(() => filters.active(todos.value).length)
+
+// handle routing
+window.addEventListener('hashchange', onHashChange)
+onHashChange()
+
+// persist state
+watchEffect(() => {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(todos.value))
+})
+
+function toggleAll(e) {
+  todos.value.forEach((todo) => (todo.completed = e.target.checked))
 }
 
-function shuffle() {
-  items.value = _shuffle(items.value)
+function addTodo(e) {
+  const value = e.target.value.trim()
+  if (value) {
+    todos.value.push({
+      id: Date.now(),
+      title: value,
+      completed: false
+    })
+    e.target.value = ''
+  }
 }
 
-function remove(item) {
-  const i = items.value.indexOf(item)
-  if (i > -1) {
-    items.value.splice(i, 1)
+function removeTodo(todo) {
+  todos.value.splice(todos.value.indexOf(todo), 1)
+}
+
+let beforeEditCache = ''
+function editTodo(todo) {
+  beforeEditCache = todo.title
+  editedTodo.value = todo
+}
+
+function cancelEdit(todo) {
+  editedTodo.value = null
+  todo.title = beforeEditCache
+}
+
+function doneEdit(todo) {
+  if (editedTodo.value) {
+    editedTodo.value = null
+    todo.title = todo.title.trim()
+    if (!todo.title) removeTodo(todo)
+  }
+}
+
+function removeCompleted() {
+  todos.value = filters.active(todos.value)
+}
+
+function onHashChange() {
+  const route = window.location.hash.replace(/#\/?/, '')
+  if (filters[route]) {
+    visibility.value = route
+  } else {
+    window.location.hash = ''
+    visibility.value = 'all'
   }
 }
 </script>
 
 <template>
-  <button @click="insert">insert at random index</button>
-  <button @click="reset">reset</button>
-  <button @click="shuffle">shuffle</button>
-
-  <TransitionGroup tag="ul" name="fade" class="container">
-    <div v-for="item in items" class="item" :key="item">
-      {{ item }}
-      <button @click="remove(item)">x</button>
-    </div>
-  </TransitionGroup>
+  <section class="todoapp">
+    <header class="header">
+      <h1>todos</h1>
+      <input class="new-todo" autofocus placeholder="What needs to be done?" @keyup.enter="addTodo">
+    </header>
+    <section class="main" v-show="todos.length">
+      <input id="toggle-all" class="toggle-all" type="checkbox" :checked="remaining === 0" @change="toggleAll">
+      <label for="toggle-all">Mark all as complete</label>
+      <ul class="todo-list">
+        <li v-for="todo in filteredTodos" class="todo" :key="todo.id"
+          :class="{ completed: todo.completed, editing: todo === editedTodo }">
+          <div class="view">
+            <input class="toggle" type="checkbox" v-model="todo.completed">
+            <label @dblclick="editTodo(todo)">{{ todo.title }}</label>
+            <button class="destroy" @click="removeTodo(todo)"></button>
+          </div>
+          <input v-if="todo === editedTodo" class="edit" type="text" v-model="todo.title"
+            @vue:mounted="({ el }) => el.focus()" @blur="doneEdit(todo)" @keyup.enter="doneEdit(todo)"
+            @keyup.escape="cancelEdit(todo)">
+        </li>
+      </ul>
+    </section>
+    <footer class="footer" v-show="todos.length">
+      <span class="todo-count">
+        <strong>{{ remaining }}</strong>
+        <span>{{ remaining === 1 ? ' item' : ' items' }} left</span>
+      </span>
+      <ul class="filters">
+        <li>
+          <a href="#/all" :class="{ selected: visibility === 'all' }">All</a>
+        </li>
+        <li>
+          <a href="#/active" :class="{ selected: visibility === 'active' }">Active</a>
+        </li>
+        <li>
+          <a href="#/completed" :class="{ selected: visibility === 'completed' }">Completed Yeah</a>
+        </li>
+      </ul>
+      <button class="clear-completed" @click="removeCompleted" v-show="todos.length > remaining">
+        Clear completed
+      </button>
+    </footer>
+  </section>
 </template>
 
 <style>
-.container {
-  position: relative;
-  padding: 0;
-}
-
-.item {
-  width: 100%;
-  height: 30px;
-  background-color: #553868;
-  border: 1px solid #666;
-  box-sizing: border-box;
-}
-
-/* 1. declare transition */
-.fade-move,
-.fade-enter-active,
-.fade-leave-active {
-  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
-}
-
-/* 2. declare enter from and leave to state */
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-  transform: scaleY(0.01) translate(30px, 0);
-}
-
-/* 3. ensure leaving items are taken out of layout flow so that moving
-      animations can be calculated correctly. */
-.fade-leave-active {
-  position: absolute;
-}
+@import "https://unpkg.com/todomvc-app-css@2.4.1/index.css";
 </style>
