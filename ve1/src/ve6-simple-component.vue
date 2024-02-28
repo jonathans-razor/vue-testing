@@ -18,6 +18,8 @@ const groceryList = ref([
 </script>
 
 <template>
+  The simplest possible component which accepts a prop and renders it.
+
   <ol>
     <!--
       We are providing each todo-item with the todo object
