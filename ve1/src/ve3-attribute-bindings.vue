@@ -6,7 +6,7 @@ The :title syntax is short for v-bind:title.
 <script setup>
 import { ref } from 'vue'
 
-const message = ref('Hello World!')
+const message = ref('Hover World!')
 const isRed = ref(true)
 const color = ref('green')
 

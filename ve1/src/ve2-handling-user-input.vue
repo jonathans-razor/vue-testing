@@ -5,7 +5,7 @@ This example demonstrates handling user input with the v-on directive.
 <script setup>
 import { ref } from 'vue'
 
-const message = ref('Hello World!')
+const message = ref('Yello world.')
 
 function reverseMessage() {
   // Access/mutate the value of a ref via
@@ -32,7 +32,7 @@ function notify() {
   <button @click="reverseMessage">Reverse Message</button>
 
   <!-- Can also be an inline expression statement -->
-  <button @click="message += '!'">Append "!"</button>
+  <button @click="message += '!!'">Append "!!"</button>
 
   <!--
     Vue also provides modifiers for common tasks
@@ -47,6 +47,6 @@ function notify() {
 button,
 a {
   display: block;
-  margin-bottom: 1em;
+  margin-bottom: 3em;
 }
 </style>

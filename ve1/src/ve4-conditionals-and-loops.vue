@@ -7,6 +7,7 @@ import { ref } from 'vue'
 
 const show = ref(true)
 const list = ref([1, 2, 3])
+const list2 = ref([1, 2, 3, 47])
 </script>
 
 <template>
@@ -18,6 +19,12 @@ const list = ref([1, 2, 3])
   <ul v-if="show && list.length">
     <li v-for="item of list">{{ item }}</li>
   </ul>
+  <br/>
+  <br/>
+  <ul v-if="show && list2.length">
+    <li v-for="item of list2">{{ item }}</li>
+  </ul>
+
   <p v-else-if="list.length">List is not empty, but hidden.</p>
   <p v-else>List is empty.</p>
 </template>
