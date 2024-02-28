@@ -7,7 +7,7 @@ import { ref } from 'vue'
 
 const text = ref('Edit me or bite me')
 const checked = ref(true)
-const checkedNames = ref(['Jack'])
+const checkedNames = ref(['Jack', 'Mike'])
 const picked = ref('One')
 const selected = ref('A')
 const multiSelected = ref(['A'])
