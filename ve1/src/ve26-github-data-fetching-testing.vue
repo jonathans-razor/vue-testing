@@ -30,7 +30,7 @@ function formatDate(v) {
 </script>
 
 <template>
-  <h1>Latest Vue Core Commits</h1>
+  <h1>Latest CBF Commits</h1>
   <template v-for="branch in branches">
     <input type="radio" :id="branch" :value="branch" name="branch" v-model="currentBranch">
     <label :for="branch">{{ branch }}</label>

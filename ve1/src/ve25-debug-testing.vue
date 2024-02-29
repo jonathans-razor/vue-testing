@@ -10,7 +10,7 @@ import { ref } from 'vue'
 // in order to display it, but we will see in the next
 // example why it is needed if we ever intend to change
 // the value.
-const message = ref('Hello World!')
+const message = ref('Yello world.')
 </script>
 
 <template>
