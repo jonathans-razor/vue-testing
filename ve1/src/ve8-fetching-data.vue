@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/require-v-for-key -->
 <!--
 This example fetches latest Vue.js commits data from GitHub’s API and displays them as a list.
 You can switch between the two branches.
@@ -37,6 +38,7 @@ function formatDate(v) {
   </template>
   <p>vuejs/vue@{{ currentBranch }}</p>
   <ul>
+    // eslint-disable-next-line vue/require-v-for-key
     <li v-for="{ html_url, sha, author, commit } in commits">
       <a :href="html_url" target="_blank" class="commit">{{ sha.slice(0, 7) }}</a>
       - <span class="message">{{ truncate(commit.message) }}</span><br>
