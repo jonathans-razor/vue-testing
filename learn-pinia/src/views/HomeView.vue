@@ -1,7 +1,7 @@
 <template>
 <div class="home">
   <div class="count">
-    {{ count }}
+    {{ storeCounter.count }}
   </div>
   <div class="buttons">
     <button @click="increment">+</button>
@@ -16,9 +16,12 @@
 
 <script setup>
 import { computed, ref } from 'vue'
+import { useCounterStore } from '@/stores/counter'
+
+const storeCounter = useCounterStore()
+const count = ref(0)
 const increment = () => count.value++
 const decrement = () => count.value--
-const count = ref(0)
 const oddOrEven = computed(() => count.value % 2 === 0 ? 'even' : 'odd')
 </script>
 
