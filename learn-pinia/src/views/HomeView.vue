@@ -1,9 +1,6 @@
 <template>
 <div class="home">
   <Counter/>
-  <div class="count">
-    {{ storeCounter.count }}
-  </div>
   <div class="buttons">
     <button @click="storeCounter.increment">+</button>
     <button @click="storeCounter.decrement">-</button> 
