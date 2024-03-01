@@ -11,18 +11,23 @@
   <div>
     This counter is: {{ storeCounter.oddOrEven }}
   </div>
+  <hr>
+  <div>
+    <h3>
+      Edit counter:
+    </h3>
+    <input
+      type="number" 
+      v-model="storeCounter.count" 
+     />
+  </div>
 </div>
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
 import { useCounterStore } from '@/stores/counter'
 
 const storeCounter = useCounterStore()
-const count = ref(0)
-const increment = () => count.value++
-const decrement = () => count.value--
-//const oddOrEven = computed(() => count.value % 2 === 0 ? 'even' : 'odd')
 </script>
 
 <style>
