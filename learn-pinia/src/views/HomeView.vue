@@ -9,7 +9,7 @@
   </div>
   <hr>
   <div>
-    This counter is: {{ oddOrEven }}
+    This counter is: {{ storeCounter.oddOrEven }}
   </div>
 </div>
 </template>
@@ -22,7 +22,7 @@ const storeCounter = useCounterStore()
 const count = ref(0)
 const increment = () => count.value++
 const decrement = () => count.value--
-const oddOrEven = computed(() => count.value % 2 === 0 ? 'even' : 'odd')
+//const oddOrEven = computed(() => count.value % 2 === 0 ? 'even' : 'odd')
 </script>
 
 <style>
