@@ -14,5 +14,5 @@ const message = ref('Hello World!')
 </script>
 
 <template>
-  <h1>{{ message }} again 2</h1>
+  <h1>{{ message }} from Jonathan's Vue Examples Project</h1>
 </template>
