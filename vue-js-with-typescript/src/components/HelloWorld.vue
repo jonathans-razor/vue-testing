@@ -22,10 +22,15 @@ export default class HelloWorld extends Vue {
   lastName = 'Smith';
   erikMsg = 'Erik, so awesome';
   counter = 0;
+  zip: string | null = null;
+  mounted(): void {
+    console.log('HelloWorld mounted');
+  }
   get fullName() {
     return this.firstName + ' ' + this.lastName;
   }
   increment() {
+    //this.zip++;
     this.counter++;
   }
 }
