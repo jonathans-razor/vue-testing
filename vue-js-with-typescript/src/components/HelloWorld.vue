@@ -3,6 +3,8 @@
     <h1>{{ msg }}</h1>
     <h1>{{ erikMsg }}</h1>
     <h1>{{ fullName }}</h1>
+    <h1>{{ counter }}</h1>
+    <button @click="increment">Increment</button>
   </div>
 </template>
 
@@ -19,8 +21,12 @@ export default class HelloWorld extends Vue {
   firstName = 'Erik';
   lastName = 'Smith';
   erikMsg = 'Erik, so awesome';
+  counter = 0;
   get fullName() {
     return this.firstName + ' ' + this.lastName;
+  }
+  increment() {
+    this.counter++;
   }
 }
 </script>
