@@ -18,6 +18,11 @@ export default Vue.extend({
       test: 'Hello from TypeScript!',
     };
   },
+  methods: {
+    pressMe(): String {
+      return 'You pressed me!';
+    },
+  },
 });
 </script>
 
