@@ -2,6 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h1>{{ erikMsg }}</h1>
+    <h1>{{ fullName }}</h1>
   </div>
 </template>
 
@@ -15,7 +16,12 @@ import { Options, Vue } from 'vue-class-component';
 })
 export default class HelloWorld extends Vue {
   msg!: string
+  firstName = 'Erik';
+  lastName = 'Smith';
   erikMsg = 'Erik, so awesome';
+  get fullName() {
+    return this.firstName + ' ' + this.lastName;
+  }
 }
 </script>
 
