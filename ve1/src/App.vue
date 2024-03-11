@@ -1,18 +1,52 @@
 <!--
-Say Hello World with Vue!
+This example demonstrates handling user input with the v-on directive.
 -->
 
 <script setup>
 import { ref } from 'vue'
 
-// A "ref" is a reactive data source that stores a value.
-// Technically, we don't need to wrap the string with ref()
-// in order to display it, but we will see in the next
-// example why it is needed if we ever intend to change
-// the value.
-const message = ref('Hello World!')
+const message = ref('Yello world.')
+
+function reverseMessage() {
+  // Access/mutate the value of a ref via
+  // its .value property.
+  message.value = message.value.split('').reverse().join('')
+}
+
+function notify() {
+  alert('navigation was prevented.')
+}
 </script>
 
 <template>
-  <h1>{{ message }} from Jonathan's Vue Examples Project</h1>
+  <!--
+    Note we don't need .value inside templates because
+    refs are automatically "unwrapped" in templates.
+  -->
+  <h1>{{ message }}</h1>
+
+  <!--
+    Bind to a method/function.
+    The @click syntax is short for v-on:click.
+  -->
+  <button @click="reverseMessage">Reverse Message</button>
+
+  <!-- Can also be an inline expression statement -->
+  <button @click="message += '!!'">Append "!!"</button>
+
+  <!--
+    Vue also provides modifiers for common tasks
+    such as e.preventDefault() and e.stopPropagation()
+  -->
+  <a href="https://vuejs.org" @click.prevent="notify">
+    A link with e.preventDefault()
+  </a>
 </template>
+
+<style>
+button,
+a {
+  display: block;
+  margin-bottom: 3em;
+}
+</style>
