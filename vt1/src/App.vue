@@ -1,19 +1,15 @@
 <script setup>
 import { ref } from 'vue'
 
-const titleClass = ref('title')
+const awesome = ref(true)
+
+function toggle() {
+  awesome.value = !awesome.value
+}
 </script>
 
 <template>
-  <h1 :class="titleClass">Make me red</h1>
-  <h1 class="test">Make me green</h1>
+  <button @click="toggle">toggle</button>
+  <h1 v-if="awesome">Vue is awesome!</h1>
+  <h1 v-else>Oh no 😢</h1>
 </template>
-
-<style>
-.title {
-  color: red;
-}
-.test {
-  color: rgb(0, 255, 8);
-}
-</style>
