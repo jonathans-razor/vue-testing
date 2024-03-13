@@ -1,4 +1,4 @@
-# Vue Testing.
+# Vue Testing
 
 [Learning View Spreadsheet](https://raw.githack.com/jonathans-razor/vue-testing/main/learn-vue.html)
 
