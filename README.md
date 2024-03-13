@@ -1,6 +1,6 @@
 # Vue Testing
 
-[Learning View Spreadsheet](https://raw.githack.com/jonathans-razor/vue-testing/main/learn-vue.html)
+[Learn View Spreadsheet](https://raw.githack.com/jonathans-razor/vue-testing/main/learn-vue.html)
 
 
           _____                   _____                   _____          
