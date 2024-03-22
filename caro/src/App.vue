@@ -19,7 +19,7 @@ onMounted(() => {
 function getLocation() {
   console.log("getLocation begin");
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition((position) => {
+    navigator.geolocation.watchPosition((position) => {
       latitude.value = position.coords.latitude;
       longitude.value = position.coords.longitude;
       console.log("Latitude:" + position.coords.latitude);
