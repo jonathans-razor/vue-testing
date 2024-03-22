@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import { onMounted, ref } from 'vue'
-import leaflet from 'leaflet'
+import L from 'leaflet'
 
 const latitude = ref(0);
 const longitude = ref(0);
@@ -9,8 +9,8 @@ const map = ref();
 const mapContainer = ref();
 
 onMounted(() => {
-  map.value = leaflet.map(mapContainer.value).setView([51.505, -0.09], 13);
-  leaflet.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  map.value = L.map(mapContainer.value).setView([51.505, -0.09], 13);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   }).addTo(map.value);
@@ -25,6 +25,8 @@ function getLocation() {
       console.log("Latitude:" + position.coords.latitude);
       console.log("Longitude:" + position.coords.longitude);
       map.value.setView([position.coords.latitude, position.coords.longitude], 13); 
+
+      L.marker([latitude.value, longitude.value]).addTo(map.value);
     }); 
   }
 }
