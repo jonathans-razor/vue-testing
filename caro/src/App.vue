@@ -26,7 +26,11 @@ function getLocation() {
       console.log("Longitude:" + position.coords.longitude);
       map.value.setView([position.coords.latitude, position.coords.longitude], 13); 
 
-      L.marker([latitude.value, longitude.value]).addTo(map.value);
+      L.marker([latitude.value, longitude.value], {draggable : true})
+      .addTo(map.value)
+      .on("dragend", (event) => {
+       console.log(event); 
+      });
     }); 
   }
 }
