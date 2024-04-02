@@ -1,7 +1,7 @@
 <template>
   <q-page class="flex flex-center">
   <q-btn label="Hello" />
-  <q-img src="https://picsum.photos/1000/500" />
+    <q-img alt="Venice Boat" src="../assets/venice boats.avif" />
   </q-page>
 </template>
 
