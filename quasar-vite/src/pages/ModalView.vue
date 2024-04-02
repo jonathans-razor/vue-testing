@@ -55,7 +55,7 @@ const props = defineProps({
 
 .modal-header h3 {
   margin-top: 0;
-  color: #42b983;
+  color: #170d28;
 }
 
 .modal-body {
