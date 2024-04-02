@@ -9,16 +9,16 @@ const props = defineProps({
     <div v-if="show" class="modal-mask">
       <div class="modal-container">
         <div class="modal-header">
-          <slot name="header">default header</slot>
+          <slot name="header"> modal header</slot>
         </div>
 
         <div class="modal-body">
-          <slot name="body">default body</slot>
+          <slot name="body">modal body</slot>
         </div>
 
         <div class="modal-footer">
           <slot name="footer">
-            default footer
+            modal footer
             <button
               class="modal-default-button"
               @click="$emit('close')"

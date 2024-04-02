@@ -1,20 +1,20 @@
 <template>
-  <q-page class="flex flex-center">
+  <q-page class="">
   <div>
-    <q-btn label="Search" />
+    <br/>
+    <q-btn id="show-modal" @click="showModal = true">Show Modal</q-btn>
   </div>
   <br/>
   <div>
     <q-img alt="Venice Boat" src="../assets/venice boats.avif" width="500px"/>
   </div>
 
-  <button id="show-modal" @click="showModal = true">Show Modal</button>
 
   <Teleport to="body">
     <!-- use the modal component, pass in the prop -->
     <modal :show="showModal" @close="showModal = false">
       <template #header>
-        <h3>custom header</h3>
+        <h3>Modal Header</h3>
       </template>
     </modal>
   </Teleport>
