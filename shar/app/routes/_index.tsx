@@ -17,8 +17,10 @@ import {
 export default function Index() {
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Shadcn UI Samples</h1>
+      <h2>Shadcn UI Samples</h2>
+      <h3>
       Accordian
+      </h3>
       <Accordion type="single" collapsible>
         <AccordionItem value="item-1">
           <AccordionTrigger>Is it accessible?</AccordionTrigger>
