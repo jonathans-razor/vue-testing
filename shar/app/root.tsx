@@ -27,3 +27,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   return <Outlet />;
 }
+
+/*
+import styles from "./tailwind.css"
+
+const cssBundleHref = ""; // Declare the variable cssBundleHref
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: styles },
+  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
+]
+*/
