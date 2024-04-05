@@ -32,50 +32,59 @@ const accordionItems = [
 </script>
 
 <template>
-  <i> Accordion </i>
-  <Accordion
-    type="single"
-    class="w-full"
-    collapsible
-    :default-value="defaultValue"
-  >
-    <AccordionItem
-      v-for="item in accordionItems"
-      :key="item.value"
-      :value="item.value"
+  <div style="margin-left: 0.5in">
+    <br>
+    <i class="text-purple-900"> Accordion </i>
+    <hr>
+    <Accordion
+      type="single"
+      class="w-full"
+      collapsible
+      :default-value="defaultValue"
     >
-      <AccordionTrigger>{{ item.title }}</AccordionTrigger>
-      <AccordionContent>
-        {{ item.content }}
-      </AccordionContent>
-    </AccordionItem>
-  </Accordion>
+      <AccordionItem
+        v-for="item in accordionItems"
+        :key="item.value"
+        :value="item.value"
+      >
+        <AccordionTrigger>{{ item.title }}</AccordionTrigger>
+        <AccordionContent>
+          {{ item.content }}
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
 
-  <br>
-  <i> Button </i>
-  <br />
-  <div>
-    <Button>Click me</Button>
-  </div>
+    <br>
+    <i class="text-purple-900"> Button </i>
+    <hr>
+    <br />
+    <div>
+      <Button>Click me</Button>
+    </div>
 
-  <br />
-  <i class="text-red-500"> Checkbox </i>
-  <br />
-  <div class="flex items-center space-x-2">
-    <Checkbox id="terms" />
-    <label
-      for="terms"
-      class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-    >
-      Accept terms and conditions
-    </label>
-  </div>
-
-  <br />
-  <i> Label </i>
-  <div>
+    <br />
+    <i class="text-purple-900"> Checkbox </i>
+    <hr>
+    <br />
     <div class="flex items-center space-x-2">
-      <Label for="terms">Here is a label.</Label>
+      <Checkbox id="terms" />
+      <label
+        for="terms"
+        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+      >
+        Accept terms and conditions
+      </label>
+    </div>
+
+    <br />
+    <br />
+    <i class="text-purple-900"> Label </i>
+    <hr>
+    <br />
+    <div>
+      <div class="flex items-center space-x-2">
+        <Label for="terms">Here is a label.</Label>
+      </div>
     </div>
   </div>
 </template>
