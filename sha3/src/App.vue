@@ -5,6 +5,11 @@ import { Button } from '@/components/ui/button'
 
 
 <template>
+  <i>
+    Button
+  </i>
+  <br>
+  <br>
   <div>
     <Button>Click me</Button>
   </div>
