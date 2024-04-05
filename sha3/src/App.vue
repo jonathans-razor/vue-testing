@@ -1,4 +1,15 @@
 <script setup lang="ts">
+
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
+
 import { useToast } from "@/components/ui/toast/use-toast";
 import { Button } from "@/components/ui/button";
 
@@ -97,7 +108,7 @@ const accordionItems = [
 </script>
 
 <template>
-  <div style="margin-left: 0.5in; margin-right: 0.5in">
+  <div style="margin-left: 0.5in; margin-right: 0.5in; margin-bottom: 1in">
     <br />
     <i class="text-purple-900"> Accordion </i>
     <hr />
@@ -232,5 +243,39 @@ const accordionItems = [
     >
       Add to calendar
     </Button>
+
+        <br />
+    <br />
+    <i class="text-purple-900"> Select </i>
+    <hr />
+    <br />
+
+
+  <Select>
+    <SelectTrigger class="w-[180px]">
+      <SelectValue placeholder="Select a fruit" />
+    </SelectTrigger>
+    <SelectContent>
+      <SelectGroup>
+        <SelectLabel>Fruits</SelectLabel>
+        <SelectItem value="apple">
+          Apple
+        </SelectItem>
+        <SelectItem value="banana">
+          Banana
+        </SelectItem>
+        <SelectItem value="blueberry">
+          Blueberry
+        </SelectItem>
+        <SelectItem value="grapes">
+          Grapes
+        </SelectItem>
+        <SelectItem value="pineapple">
+          Pineapple
+        </SelectItem>
+      </SelectGroup>
+    </SelectContent>
+  </Select>
+
   </div>
 </template>
