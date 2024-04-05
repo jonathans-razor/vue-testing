@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import { useToast } from "@/components/ui/toast/use-toast";
+import { Button } from "@/components/ui/button";
+
+const { toast } = useToast();
+
 import {
   Table,
   TableBody,
@@ -60,7 +65,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import {
@@ -93,7 +97,7 @@ const accordionItems = [
 </script>
 
 <template>
-  <div style="margin-left: 0.5in;margin-right: 0.5in">
+  <div style="margin-left: 0.5in; margin-right: 0.5in">
     <br />
     <i class="text-purple-900"> Accordion </i>
     <hr />
@@ -120,7 +124,20 @@ const accordionItems = [
     <hr />
     <br />
     <div>
-      <Button>Click me</Button>
+    <Button
+      variant="outline"
+      @click="
+        () => {
+          console.log('Button clicked');
+          toast({
+            title: 'Scheduled: Catch up',
+            description: 'Friday, February 10, 2023 at 5:57 PM',
+          });
+        }
+      "
+    >
+      Click Me
+    </Button>
     </div>
 
     <br />
@@ -193,5 +210,27 @@ const accordionItems = [
         </TableRow>
       </TableBody>
     </Table>
+
+    <br />
+    <br />
+    <i class="text-purple-900"> Toast </i>
+    <hr />
+    <br />
+
+    <Button
+      variant="outline"
+      @click="
+        () => {
+          console.log('Toast button clicked');
+
+          toast({
+            title: 'Scheduled: Catch up',
+            description: 'Friday, February 10, 2023 at 5:57 PM',
+          });
+        }
+      "
+    >
+      Add to calendar
+    </Button>
   </div>
 </template>
