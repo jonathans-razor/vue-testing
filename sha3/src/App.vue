@@ -8,6 +8,12 @@ import {
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip'
 
 const defaultValue = "item-1";
 
@@ -86,5 +92,23 @@ const accordionItems = [
         <Label for="terms">Here is a label.</Label>
       </div>
     </div>
+    
+    <br />
+    <br />
+    <i class="text-purple-900"> Tooltip </i>
+    <hr>
+    <br />
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger as-child>
+          <Button variant="outline">
+            Hover
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>Add to library</p>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
   </div>
 </template>
