@@ -1,5 +1,6 @@
 <script setup lang="ts">
 
+
 import {
   Select,
   SelectContent,
@@ -140,10 +141,6 @@ const accordionItems = [
       @click="
         () => {
           console.log('Button clicked');
-          toast({
-            title: 'Scheduled: Catch up',
-            description: 'Friday, February 10, 2023 at 5:57 PM',
-          });
         }
       "
     >
