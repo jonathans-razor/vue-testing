@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { toast } from 'vue-sonner'
+
 import {
   Card,
   CardContent,
@@ -289,6 +291,29 @@ const accordionItems = [
         </SelectGroup>
       </SelectContent>
     </Select>
+
+
+    <br />
+    <br />
+    <br />
+    <i class="text-purple-900"> Sonner </i>
+    <hr />
+    <br />
+
+      <Button
+    variant="outline" @click="() => {
+      toast('Event has been created', {
+        description: 'Sunday, December 03, 2023 at 9:00 AM',
+        action: {
+          label: 'Undo',
+          onClick: () => console.log('Undo'),
+        },
+      })
+    }"
+  >
+    Add to calendar
+  </Button>
+
 
     <br />
     <br />
