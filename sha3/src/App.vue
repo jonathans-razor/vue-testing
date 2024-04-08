@@ -327,13 +327,9 @@ const accordionItems = [
     <i class="text-purple-900"> Toast </i>
     <hr />
     <br />
-
     <Button
-      variant="outline"
       @click="
         () => {
-          console.log('Toast button clicked');
-
           toast({
             title: 'Scheduled: Catch up',
             description: 'Friday, February 10, 2023 at 5:57 PM',
