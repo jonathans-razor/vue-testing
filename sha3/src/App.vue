@@ -192,7 +192,7 @@ const { toast } = useToast();
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+          <AlertDialogTitle>Proceed to Eclipse Viewing Area?</AlertDialogTitle>
           <AlertDialogDescription>
             This action cannot be undone. Are you sure you want to watch the
             eclipse?
@@ -335,6 +335,15 @@ const { toast } = useToast();
       <Calendar v-model="date" />
     </PopoverContent>
   </Popover>
+
+
+
+    <br />
+    <br />
+    <br />
+    <i class="text-purple-900"> Dialog </i>
+    <hr />
+    <br />
 
 
 
