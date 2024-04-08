@@ -1,5 +1,16 @@
 <script setup lang="ts">
 
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from '@/components/ui/alert-dialog'
 
 import {
   Select,
@@ -273,6 +284,32 @@ const accordionItems = [
       </SelectGroup>
     </SelectContent>
   </Select>
+
+    <br />
+    <br />
+    <i class="text-purple-900"> Alert Dialog </i>
+    <hr />
+    <br />
+  
+    <AlertDialog>
+    <AlertDialogTrigger as-child>
+      <Button variant="outline">
+        Show Dialog
+      </Button>
+    </AlertDialogTrigger>
+    <AlertDialogContent>
+      <AlertDialogHeader>
+        <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+        <AlertDialogDescription>
+          This action cannot be undone. Are you sure you want to watch the eclipse?
+        </AlertDialogDescription>
+      </AlertDialogHeader>
+      <AlertDialogFooter>
+        <AlertDialogCancel>Cancel</AlertDialogCancel>
+        <AlertDialogAction>Continue</AlertDialogAction>
+      </AlertDialogFooter>
+    </AlertDialogContent>
+  </AlertDialog>
 
   </div>
 </template>
