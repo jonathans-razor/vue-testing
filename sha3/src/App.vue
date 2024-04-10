@@ -1,19 +1,28 @@
 <script setup lang="ts">
 //import { toast } from "vue-sonner";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
-import { format } from 'date-fns'
-import { Calendar as CalendarIcon } from 'lucide-vue-next'
+import { format } from "date-fns";
+import { Calendar as CalendarIcon } from "lucide-vue-next";
 
-import { ref } from 'vue'
-import { cn } from '@/lib/utils'
-import { Calendar } from '@/components/ui/calendar'
+import { ref } from "vue";
+import { cn } from "@/lib/utils";
+import { Calendar } from "@/components/ui/calendar";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/components/ui/popover'
+} from "@/components/ui/popover";
 
-const date = ref<Date>()
+const date = ref<Date>();
 
 import { useColorMode } from "@vueuse/core";
 import { Icon } from "@iconify/vue";
@@ -24,7 +33,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-const mode = useColorMode()
+const mode = useColorMode();
 
 import {
   Card,
@@ -151,7 +160,6 @@ const accordionItems = [
   },
 ];
 const { toast } = useToast();
-
 </script>
 
 <template>
@@ -309,34 +317,32 @@ const { toast } = useToast();
       </DropdownMenuContent>
     </DropdownMenu>
 
-
-
-      <br />
+    <br />
     <br />
     <br />
     <i class="text-purple-900"> Date Picker </i>
     <hr />
     <br />
-  
-      <Popover>
-    <PopoverTrigger as-child>
-      <Button
-        :variant="'outline'"
-        :class="cn(
-          'w-[280px] justify-start text-left font-normal',
-          !date && 'text-muted-foreground',
-        )"
-      >
-        <CalendarIcon class="mr-2 h-4 w-4" />
-        <span>{{ date ? format(date, "PPP") : "Pick a date" }}</span>
-      </Button>
-    </PopoverTrigger>
-    <PopoverContent class="w-auto p-0">
-      <Calendar v-model="date" />
-    </PopoverContent>
-  </Popover>
 
-
+    <Popover>
+      <PopoverTrigger as-child>
+        <Button
+          :variant="'outline'"
+          :class="
+            cn(
+              'w-[280px] justify-start text-left font-normal',
+              !date && 'text-muted-foreground'
+            )
+          "
+        >
+          <CalendarIcon class="mr-2 h-4 w-4" />
+          <span>{{ date ? format(date, "PPP") : "Pick a date" }}</span>
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent class="w-auto p-0">
+        <Calendar v-model="date" />
+      </PopoverContent>
+    </Popover>
 
     <br />
     <br />
@@ -344,8 +350,32 @@ const { toast } = useToast();
     <i class="text-purple-900"> Dialog </i>
     <hr />
     <br />
-
-
+    <Dialog>
+      <DialogTrigger as-child>
+        <Button variant="outline"> Edit Profile </Button>
+      </DialogTrigger>
+      <DialogContent class="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>Edit profile</DialogTitle>
+          <DialogDescription>
+            Make changes to your profile here. Click save when you're done.
+          </DialogDescription>
+        </DialogHeader>
+        <div class="grid gap-4 py-4">
+          <div class="grid grid-cols-4 items-center gap-4">
+            <Label for="name" class="text-right"> Name </Label>
+            <Input id="name" value="Pedro Duarte" class="col-span-3" />
+          </div>
+          <div class="grid grid-cols-4 items-center gap-4">
+            <Label for="username" class="text-right"> Username </Label>
+            <Input id="username" value="@peduarte" class="col-span-3" />
+          </div>
+        </div>
+        <DialogFooter>
+          <Button type="submit"> Save changes </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
 
     <br />
     <br />
