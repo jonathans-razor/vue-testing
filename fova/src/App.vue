@@ -2,15 +2,23 @@
   <div class="root">
     <h3>Create an Account</h3>
     <p>
-      <input type="text" placeholder="Email" v-model="email"/>
+      <input type="text" placeholder="Email" v-model="email" />
     </p>
     <p>
-      <input type="password" placeholder="Password" vmodel="password.password"/>
+      <input
+        type="password"
+        placeholder="Password"
+        vmodel="password.password"
+      />
     </p>
     <p>
-      <input type="password" placeholder="Confirm Password" v-model="password.confirm"/>
+      <input
+        type="password"
+        placeholder="Confirm Password"
+        v-model="password.confirm"
+      />
     </p>
-    <button>Submit</button>
+    <button @click="submitForm">Submit</button>
   </div>
   <router-view />
 </template>
@@ -21,6 +29,11 @@ import { useVuelidate } from '@vuelidate/core';
 import { required, email } from '@vuelidate/validators';
 
 export default defineComponent({
+  methods: {
+    submitForm() {
+      alert('Form successfully submitted')
+    },
+  },
   name: 'App',
   setup() {
     const state = reactive({
