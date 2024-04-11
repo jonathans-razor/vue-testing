@@ -15,7 +15,13 @@
 </template>
 
 <script>
+import useValidate from '@vuelidate/core';
+import { required } from '@vuelidate/validators';
+
 export default {
+  validations() {
+    return {};
+  },
   methods: {
     submitForm() {
       alert('Form successfully submitted');
@@ -23,6 +29,7 @@ export default {
   },
   data() {
     return {
+      v$: useValidate(),
       email: '',
       password: {
         password: '',
