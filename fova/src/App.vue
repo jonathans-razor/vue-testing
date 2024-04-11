@@ -1,22 +1,36 @@
-
 <template>
   <div class="root">
     <h2>Create an Account</h2>
-    <p>
-      <input type="text" placeholder="Email" />
-    </p>
-    <p>
-      <input type="password" placeholder="Password" />
-    </p>
-    <p>
-      <input type="password" placeholder="Confirm Password" />
-    </p>
-    <button>Submit</button>
+    <input type="text" placeholder="Email" v-model="email" />
+    <!-- -->
+    <input type="password" placeholder="Password" v-model="password.password" />
+    <!-- -->
+    <input
+      type="password"
+      placeholder="Confirm Password"
+      v-model="password.confirm"
+    />
+    <button @click="submitForm">Submit</button>
   </div>
 </template>
 
 <script>
-
+export default {
+  methods: {
+    submitForm() {
+      alert('Form successfully submitted');
+    },
+  },
+  data() {
+    return {
+      email: '',
+      password: {
+        password: '',
+        confirm: '',
+      },
+    };
+  },
+};
 </script>
 
 <style lang="css">
