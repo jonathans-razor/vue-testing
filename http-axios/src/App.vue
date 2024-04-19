@@ -11,7 +11,7 @@ export default {
   mounted() {
     axios.get('https://jsonplaceholder.typicode.com/posts/1')
       .then(response => {
-        console.log(response.data.bpi)
+        console.log(response)
       })
   },
   components: {
