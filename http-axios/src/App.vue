@@ -20,12 +20,13 @@ export default {
     }
   },
   mounted() {
-    axios.get('https://jsonplaceholder.typicode.com/posts')
-      .then(response => {
-        this.posts = response.data
-      })
-  },
-  components: {
+    axios.post('https://jsonplaceholder.typicode.com/posts', {
+      userId: 1,
+      title: 'Hello World',
+      body: 'This is a post'
+    })
+    .then(response => 
+      console.log(response))
   }
 }
 </script>
