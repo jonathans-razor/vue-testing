@@ -1,10 +1,12 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <h2>
-    {{ posts.id }}
-    {{ posts.title }}
-  </h2>
-  <p>{{ posts.body }}</p>
+  <div v-for="post in posts" :key="post.id">
+    <h2>
+      {{ post.id }}
+      {{ post.title }}
+    </h2>
+    <p>{{ post.body }}</p>
+  </div>
 </template>
 
 <script>
@@ -18,7 +20,7 @@ export default {
     }
   },
   mounted() {
-    axios.get('https://jsonplaceholder.typicode.com/posts/1')
+    axios.get('https://jsonplaceholder.typicode.com/posts')
       .then(response => {
         this.posts = response.data
       })
