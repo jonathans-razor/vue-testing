@@ -19,8 +19,11 @@ export default {
     }
   },
   mounted() {
-    axios.patch('https://jsonplaceholder.typicode.com/posts/1', {
-      title: 'Hello World 3'
+    axios.put('https://jsonplaceholder.typicode.com/posts/1', {
+      id: '1',
+      userId: 1,
+      title: 'Hello World 2',
+      body: 'This is a post'
     })
     .then(response => 
       console.log(response))
