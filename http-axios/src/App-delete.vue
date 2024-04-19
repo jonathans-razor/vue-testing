@@ -19,9 +19,10 @@ export default {
     }
   },
   mounted() {
-    axios.get('https://jsonplaceholder.typicode.com/wrong', {
+    axios.delete('https://jsonplaceholder.typicode.com/posts/1', {
     })
-    .catch(error => console.log(error))
+    .then(response => 
+      console.log(response))
   }
 }
 </script>

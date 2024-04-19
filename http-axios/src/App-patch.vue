@@ -19,9 +19,11 @@ export default {
     }
   },
   mounted() {
-    axios.get('https://jsonplaceholder.typicode.com/wrong', {
+    axios.patch('https://jsonplaceholder.typicode.com/posts/1', {
+      title: 'Hello World 3'
     })
-    .catch(error => console.log(error))
+    .then(response => 
+      console.log(response))
   }
 }
 </script>
