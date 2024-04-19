@@ -1,12 +1,21 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <div v-for="post in posts" :key="post.id">
-    <h2>
-      {{ post.id }}
-      {{ post.title }}
-    </h2>
-    <p>{{ post.body }}</p>
-  </div>
+  <section>
+    <form @submit.prevent="createPost">
+      <div>
+        <label for="userId">UserID:</label>
+        <input type="text" id="userId" v-model="postData.userId">
+      </div>
+      <div>
+        <label for="title">Title: </label>
+        <input type="text" id="title" v-model="postData.title">
+      </div>
+      <div>
+        <label for="body">Body: </label>
+        <textarea id="body" rows="6" cols="22" v-model="postData.body"></textarea>
+      </div>
+      <button>Create Post</button>
+    </form>
+  </section>
 </template>
 
 <script>
@@ -15,28 +24,26 @@ import axios from 'axios'
 export default {
   data() {
     return {
-      posts: []
+      postData: {
+        userId: '',
+        title:  '',
+        body:   ''
+      }
     }
   },
-  mounted() {
-    axios.post('https://jsonplaceholder.typicode.com/posts', {
-      userId: 1,
-      title: 'Hello World',
-      body: 'This is a post'
-    })
-    .then(response => 
-      console.log(response))
+  methods: {
+  createPost() {
+		axios
+      .post('https://jsonplaceholder.typicode.com/posts', this.postData)
+      .then((response) => console.log(response))
+	}
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+html,body{margin:0;padding:0}
+section{height:100vh;display:grid;justify-items:center;padding-top:40px}
+div{margin:24px auto}
+label{font-weight:bolder;display:block;margin-bottom:4px}
 </style>
