@@ -1,6 +1,10 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <h2>
+    {{ posts.id }}
+    {{ posts.title }}
+  </h2>
+  <p>{{ posts.body }}</p>
 </template>
 
 <script>
@@ -8,10 +12,15 @@ import axios from 'axios'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      posts: []
+    }
+  },
   mounted() {
     axios.get('https://jsonplaceholder.typicode.com/posts/1')
       .then(response => {
-        console.log(response)
+        this.posts = response.data
       })
   },
   components: {
