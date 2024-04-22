@@ -4,9 +4,14 @@
 
 <script>
 export default {
+  data() {
+    return {
+      username: 'Andy2'
+    }
+  },
   methods: {
     greeting() {
-      return 'Hello there'
+      return `Hello there ${this.username}`
     }
   }
 }
