@@ -13,6 +13,7 @@ const props = defineProps({
   <table>
     <tr v-for="item in items" :key="item.id">
       <td> {{ item.id }}</td>
+      <td> {{ item.name }}</td>
     </tr>
   </table>
 </template>

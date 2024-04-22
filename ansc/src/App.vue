@@ -9,6 +9,10 @@ const items = [
   {
     id: 2,
     name: 'Jane Doe'
+  },
+  {
+    id: 3,
+    name: 'Jimmy Doe'
   }
 ];
 </script>
