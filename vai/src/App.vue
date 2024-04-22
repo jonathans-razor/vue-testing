@@ -1,22 +1,20 @@
 <template>
-  <p>{{ name }} ({{ ego }})</p>
-  <button v-on:click="changeName('Space Chris'), changeEgo('Starlord')">Change name</button>
+  <p>Your name: {{ name }}</p>
+  <input type="text" @input="getInput">
 </template>
 
 <script>
 export default {
   data() {
     return {
-      name: 'Chris Pratt',
-      ego: 'Actor'
+      name: ''
     }
   },
   methods: {
-    changeName(name) {
-      this.name = name
-    },
-    changeEgo(ego) {
-      this.ego = ego
+    getInput() {
+      // get value of input on event object
+      // and assign it to 'name' data property
+      this.name = event.target.value
     }
   }
 }
