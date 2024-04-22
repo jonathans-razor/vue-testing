@@ -1,17 +1,27 @@
 <template>
-  <p>Moustache syntax wraps the data property in double curly braces.</p>
-  <p v-pre>Example: {{ name }}</p>
-
-  <p>The resulting output will be the value of the data property.</p>
-  <p>Example: {{ name }}</p>
+  <img alt="Vue logo" src="./assets/logo.png">
+  <h1>Hello {{ name }}</h1>
 </template>
 
 <script>
+
 export default {
-  data() {
+  name: 'App',
+  data () {
     return {
-      name: 'John Doe'
+      name: 'Jonathan'
     }
   }
 }
 </script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
