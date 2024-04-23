@@ -1,17 +1,16 @@
 <template>
-  <p>Lazy First Name: {{ firstName }}</p>
-  <input type="text" v-model.lazy.trim="firstName">
+  <p>Done: {{ shoppingList.join(', ') }}</p>
 
-  <p>Realtime Last Name: {{ lastName }}</p>
-  <input type="text" v-model.trim="lastName">
+  <label><input type="checkbox" value="Bread" v-model="shoppingList" /> Bread</label><br>
+  <label><input type="checkbox" value="Milk"  v-model="shoppingList" /> Milk</label><br>
+  <label><input type="checkbox" value="Eggs"  v-model="shoppingList" /> Eggs</label>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      firstName: '',
-      lastName: ''
+      shoppingList: []
     }
   }
 }
