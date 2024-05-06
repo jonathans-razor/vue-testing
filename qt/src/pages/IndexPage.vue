@@ -1,5 +1,6 @@
 <template>
   <div class="q-pa-md q-gutter-sm">
+    
     <q-btn label="Alert" color="primary" @click="alert = true" />
     <q-btn label="Confirm" color="primary" @click="confirm = true" />
     <q-btn label="Prompt" color="primary" @click="prompt = true" />
