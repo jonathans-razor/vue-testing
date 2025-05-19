@@ -11,6 +11,8 @@ const routes = [
     component: () => import('layouts/MyLayout.vue'),
     children: [
       { path: '', component: () => import('pages/Index.vue') }
+      // Add your new route
+      { path: 'expansion-demo', component: () => import('components/ExpansionItemDemo.vue') }
     ].concat(children)
   },
 
